@@ -1,0 +1,171 @@
+:root {
+  --basalt: #262422;
+  --limestone: #F7F6F2;
+  --stone-mid: #D9D5CC;
+  --apricot: #E8892B;
+  --apricot-deep: #B8641A;
+  --door-teal: #1E5B57;
+  --ink: #262422;
+  --ink-soft: #5C5853;
+  --band: 14px;
+  --measure: 36rem;
+  --font-display: "Reem Kufi", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--limestone);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--door-teal); text-underline-offset: 3px; }
+a:focus-visible {
+  outline: 3px solid var(--apricot);
+  outline-offset: 3px;
+}
+
+html[lang="ar"] body { font-size: 1.125rem; line-height: 1.8; }
+
+.wrap { width: min(100% - 2rem, 64rem); margin-inline: auto; }
+
+/* Top bar */
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .75rem 0;
+}
+.wordmark {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  color: var(--basalt); text-decoration: none;
+}
+.lang {
+  display: inline-flex; align-items: center;
+  font-size: .95rem; font-weight: 500; text-decoration: none;
+  color: var(--basalt);
+  border: 1.5px solid var(--basalt); border-radius: 999px;
+  padding: .3rem .9rem; min-height: 40px;
+}
+.lang:hover { background: var(--basalt); color: var(--limestone); }
+
+/* Hero: the gate set into ablaq masonry */
+.gate {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--basalt) 0 var(--band),
+      var(--stone-mid) var(--band) calc(var(--band) * 2)
+    );
+  padding: 3.5rem 1rem 0;
+}
+.arch {
+  width: min(100%, 34rem);
+  margin-inline: auto;
+  background: var(--limestone);
+  border-radius: 17rem 17rem 0 0;
+  padding: 4.5rem 1.75rem 2.75rem;
+  text-align: center;
+}
+.mark { width: 44px; height: 54px; margin: 0 auto 1.25rem; }
+.arch h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 8vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -.01em;
+}
+.arch .other-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+  color: var(--ink-soft);
+  margin: .4rem 0 1.25rem;
+}
+.arch p.lead { max-width: 26rem; margin: 0 auto 1.75rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 48px; padding: .7rem 1.4rem;
+  border-radius: 999px; font-weight: 600; text-decoration: none;
+  font-size: 1rem;
+}
+.btn-primary { background: var(--apricot); color: var(--basalt); }
+.btn-primary:hover { background: var(--apricot-deep); color: var(--limestone); }
+.btn-secondary { border: 1.5px solid var(--basalt); color: var(--basalt); }
+.btn-secondary:hover { background: var(--basalt); color: var(--limestone); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.threshold { height: 6px; background: var(--apricot); }
+
+/* Sections */
+section { padding: 3.5rem 0; }
+section + section { border-top: 1px solid var(--stone-mid); }
+h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.1rem); line-height: 1.2;
+  margin: 0 0 .5rem;
+}
+.intro { color: var(--ink-soft); max-width: var(--measure); margin: 0 0 2rem; }
+
+.help {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 0 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+.help li {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--stone-mid);
+  display: grid; grid-template-columns: 1fr auto; gap: .15rem 1rem;
+  align-items: baseline;
+}
+.help h3 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.25rem; margin: 0;
+}
+.help .price { font-size: .9rem; font-weight: 600; color: var(--door-teal); white-space: nowrap; }
+.help .price.free { color: var(--apricot-deep); }
+.help p { grid-column: 1 / -1; margin: 0; color: var(--ink-soft); max-width: 32rem; }
+@media (max-width: 30rem) {
+  .help li { grid-template-columns: 1fr; }
+  .help .price { order: 3; }
+}
+
+.find { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 52rem) { .find { grid-template-columns: 1fr 1.2fr; align-items: start; } }
+.map {
+  width: 100%; aspect-ratio: 4 / 3; border: 0;
+  border-radius: 12rem 12rem 0 0; background: var(--stone-mid);
+}
+dl.facts { margin: 0; }
+dl.facts dt { font-weight: 600; margin-top: 1.1rem; }
+dl.facts dt:first-child { margin-top: 0; }
+dl.facts dd { margin: .15rem 0 0; color: var(--ink-soft); }
+
+.tips { list-style: none; padding: 0; margin: 0; max-width: 44rem; }
+.tips li { padding: .9rem 0; border-top: 1px solid var(--stone-mid); }
+.tips strong { display: block; }
+.tips span.note { color: var(--ink-soft); }
+
+footer {
+  background: var(--basalt); color: var(--stone-mid);
+  padding: 2.5rem 0 3rem; font-size: .95rem;
+}
+footer p { max-width: var(--measure); margin: 0 0 .75rem; }
+footer a { color: var(--limestone); }
+
+/* Floating WhatsApp button on small screens, the one action that matters */
+.float {
+  position: fixed; inset-inline-end: 1rem; bottom: 1rem; z-index: 10;
+  box-shadow: 0 4px 14px rgba(38, 36, 34, .25);
+}
+@media (min-width: 52rem) { .float { display: none; } }
+
+/* One deliberate motion: the gate opens on load */
+@media (prefers-reduced-motion: no-preference) {
+  .arch { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+}

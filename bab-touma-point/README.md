@@ -1,19 +1,22 @@
 # Bab Touma Point website
 
-One-page bilingual (English / Arabic) site for the Bab Touma Point visitor kiosk, Old City, Damascus. Plain HTML, no build step, works on GitHub Pages.
+Site for the Bab Touma Point visitor kiosk, Old City, Damascus. Plain HTML, no build step, works on GitHub Pages.
+
+- `index.html`: Arabic (main page), written in a light Shami register any Arabic speaker can follow
+- `en/index.html`: English
+- `style.css`, `site.js`: shared by both pages
 
 ## Before going live: edit one block
 
-Open `index.html` and find `const CONFIG` near the bottom:
+Open `site.js` and edit `const CONFIG` at the top (both pages update):
 
 | Setting | What to put |
 | --- | --- |
 | `whatsapp` | The kiosk's WhatsApp Business number, country code first, digits only (e.g. `9639XXXXXXXX`) |
-| `hours`, `hoursAr` | Opening hours in English and Arabic |
 | `lat`, `lon` | The kiosk's exact position (long-press it in Google Maps to copy the coordinates) |
 | `mapsQuery` | Change to `Bab Touma Point` once the Google Maps listing is approved |
 
-Also replace `+963000000000` and the coordinates in the `application/ld+json` block in the page head so search engines get the same details.
+Opening hours are written in each page's text. If the phone number or hours change, also update the `application/ld+json` block in the head of both pages so search engines get the same details.
 
 ## Publishing on GitHub Pages
 
