@@ -169,3 +169,51 @@ footer a { color: var(--limestone); }
   .arch { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
   @keyframes rise { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
 }
+
+/* ---- multi-page additions ---- */
+.topbar { flex-wrap: wrap; gap: .5rem 1rem; }
+.nav { display: flex; flex-wrap: wrap; gap: .1rem .25rem; order: 3; width: 100%; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .95rem; padding: .35rem .6rem; border-radius: 999px; }
+.nav a:hover { background: var(--stone-mid); }
+.nav a[aria-current] { background: var(--basalt); color: var(--limestone); }
+@media (min-width: 64rem) { .nav { order: 0; width: auto; } }
+.mock { margin: 0 auto .5rem; font-size: .8rem; color: var(--ink-soft); padding: .3rem 0; }
+.page-head { padding: 2.5rem 0 1rem; }
+.page-head h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 .5rem; }
+.tiles, .cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.tile a, .card a { display: block; height: 100%; text-decoration: none; color: inherit; padding: 1.25rem 1.25rem 1.5rem; border: 1.5px solid var(--stone-mid); border-radius: 1.5rem 1.5rem .5rem .5rem; }
+.tile a:hover, .card a:hover { border-color: var(--basalt); }
+.tile h3, .card h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.3rem; margin: 0 0 .35rem; }
+.tile p, .card p { margin: 0; color: var(--ink-soft); }
+.card .meta { font-size: .9rem; margin-bottom: .5rem; }
+.card .price { display: block; margin-top: .9rem; }
+.price { font-weight: 600; color: var(--door-teal); }
+.price small { font-weight: 400; color: var(--ink-soft); }
+.fine { font-size: .9rem; color: var(--ink-soft); max-width: var(--measure); }
+.board { border-collapse: collapse; width: 100%; max-width: 32rem; }
+.board th, .board td { text-align: start; padding: .6rem 0; border-top: 1px solid var(--stone-mid); vertical-align: top; }
+.board th { font-weight: 600; padding-inline-end: 1rem; width: 45%; }
+.prices { border-collapse: collapse; width: 100%; max-width: 44rem; margin-bottom: 1rem; }
+.prices th, .prices td { text-align: start; padding: .7rem .5rem; border-top: 1px solid var(--stone-mid); }
+.prices thead th { border-top: 0; color: var(--ink-soft); font-weight: 500; font-size: .9rem; }
+.prices .num { font-weight: 600; color: var(--door-teal); white-space: nowrap; }
+.detail { padding: 2.5rem 0 3.5rem; }
+.detail h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 .75rem; }
+.crumbs { margin: 0 0 .5rem; font-size: .9rem; }
+.lead-l { font-size: 1.15rem; max-width: var(--measure); color: var(--ink-soft); margin: 0 0 2rem; }
+.detail-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 52rem) { .detail-grid { grid-template-columns: 1.4fr 1fr; align-items: start; } }
+.hl { padding-inline-start: 1.25rem; margin: 0 0 1.5rem; max-width: var(--measure); }
+.hl li { padding: .25rem 0; }
+.book-box { border: 1.5px solid var(--basalt); border-radius: 1.5rem 1.5rem .5rem .5rem; padding: 1.5rem; display: grid; gap: 1rem; }
+.book-box .price { font-size: 1.4rem; }
+.book-box .btn { width: 100%; }
+.prose p { max-width: var(--measure); }
+.book-form { display: grid; gap: 1.1rem; max-width: 32rem; }
+.book-form label { display: grid; gap: .35rem; font-weight: 600; }
+.book-form input, .book-form select, .book-form textarea { font: inherit; padding: .65rem .8rem; border: 1.5px solid var(--stone-mid); border-radius: .6rem; background: #fff; color: var(--ink); }
+.book-form input:focus, .book-form select:focus, .book-form textarea:focus { outline: 3px solid var(--apricot); outline-offset: 2px; border-color: var(--basalt); }
+.book-form .two { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+.book-form button { border: 0; cursor: pointer; font: inherit; }
+.foot { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.foot-name { font-family: var(--font-display); font-weight: 700; color: var(--limestone); font-size: 1.1rem; }

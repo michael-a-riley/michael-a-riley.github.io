@@ -2,13 +2,15 @@
 
 Site for the Bab Touma Point visitor kiosk, Old City, Damascus. Plain HTML, no build step, works on GitHub Pages.
 
-- `index.html`: Arabic (main page), written in a light Shami register any Arabic speaker can follow
-- `en/index.html`: English
-- `style.css`, `site.js`: shared by both pages
+- `content.py`: all text, prices and partners in Arabic (light Shami) and English. Edit this.
+- `build.py`: run `python3 build.py` to regenerate every page (Arabic at the root, English under `en/`).
+- `style.css`: shared styles. `site.js` is generated.
+
+Do not edit the generated `index.html` files by hand; they are overwritten on the next build.
 
 ## Before going live: edit one block
 
-Open `site.js` and edit `const CONFIG` at the top (both pages update):
+Open `content.py` and edit the `SITE` block at the top, then run `python3 build.py`:
 
 | Setting | What to put |
 | --- | --- |
@@ -16,7 +18,7 @@ Open `site.js` and edit `const CONFIG` at the top (both pages update):
 | `lat`, `lon` | The kiosk's exact position (long-press it in Google Maps to copy the coordinates) |
 | `mapsQuery` | Change to `Bab Touma Point` once the Google Maps listing is approved |
 
-Opening hours are written in each page's text. If the phone number or hours change, also update the `application/ld+json` block in the head of both pages so search engines get the same details.
+Prices on the site are mockup figures marked as indicative; replace them in `content.py` once partners confirm, and remove the `mock` notice in `build.py` when the site goes live.
 
 ## Publishing on GitHub Pages
 
