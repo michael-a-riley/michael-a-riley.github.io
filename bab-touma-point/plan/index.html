@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>خطة نقطة باب توما</title>
+<meta name="description" content="خطة مشروع نقطة باب توما، بالشامي، تقدر تلعب فيها.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#262422">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 60V30a24 24 0 0 1 48 0v30z' fill='%23262422'/%3E%3Ccircle cx='32' cy='26' r='4' fill='%23E8892B'/%3E%3Crect x='29' y='34' width='6' height='18' rx='2' fill='%23E8892B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--basalt:#262422;--stone:#F7F6F2;--mid:#D9D5CC;--apricot:#E8892B;--deep:#B8641A;--teal:#1E5B57;--ink:#262422;--soft:#5C5853;--good:#2E7D4F;--bad:#B23A3A}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--stone);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;font-size:1.1rem;line-height:1.8}
+body{padding-bottom:5.5rem}
+h1,h2,.num{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;font-weight:700;line-height:1.2}
+h1{font-size:clamp(1.8rem,7vw,2.6rem);margin:0}
+h2{font-size:clamp(1.5rem,5vw,2rem);margin:0 0 .5rem}
+.wrap{width:min(100% - 2rem,40rem);margin-inline:auto}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--apricot);outline-offset:3px}
+
+/* cover */
+.cover{background:repeating-linear-gradient(to bottom,var(--basalt) 0 14px,var(--mid) 14px 28px);padding:3rem 1rem 0;text-align:center}
+.arch{width:min(100%,30rem);margin-inline:auto;background:var(--stone);border-radius:15rem 15rem 0 0;padding:4rem 1.5rem 2rem}
+.arch p{max-width:24rem;margin:.75rem auto 1.25rem;color:var(--soft)}
+.big{display:inline-flex;align-items:center;gap:.5rem;background:var(--apricot);color:var(--basalt);border:0;border-radius:999px;padding:.8rem 1.6rem;font-weight:700;font-size:1.1rem;min-height:52px}
+.big:hover{background:var(--deep);color:#fff}
+.thresh{height:6px;background:var(--apricot)}
+
+/* stations */
+.station{display:none;padding:2rem 0 1rem}
+.station.on{display:block;animation:in .35s ease-out}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.tag{display:inline-block;font-size:.85rem;color:var(--soft);margin-bottom:.25rem}
+.scene{width:100%;height:auto;display:block;margin:1rem 0;border-radius:1.25rem;background:#fff;border:1.5px solid var(--mid)}
+.scene .hot{cursor:pointer}
+.scene .hot:hover circle.ring,.scene .hot.sel circle.ring{stroke:var(--apricot);stroke-width:4}
+.card{background:#fff;border:1.5px solid var(--basalt);border-radius:1.25rem 1.25rem .5rem .5rem;padding:1rem 1.25rem;margin:.75rem 0;min-height:5rem}
+.card h3{margin:0 0 .25rem;font-size:1.2rem}
+.card p{margin:0;color:var(--soft)}
+.card .num{color:var(--teal);font-size:1.6rem}
+.note{color:var(--soft);font-size:.95rem}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;margin:.75rem 0}
+.chip{border:1.5px solid var(--basalt);background:transparent;border-radius:999px;padding:.45rem 1rem;font-weight:600;min-height:44px}
+.chip.on{background:var(--basalt);color:var(--stone)}
+.chip.coin{border-color:var(--teal);color:var(--teal)}
+.chip.coin.on{background:var(--teal);color:#fff}
+input[type=range]{width:100%;accent-color:var(--apricot);height:44px}
+.meter{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:1rem;margin:.5rem 0}
+.bar{height:14px;background:var(--mid);border-radius:7px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);width:0;transition:width .5s}
+.bar.cost i{background:var(--bad)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.vs .card{text-align:center}
+.vs .card.win{border-color:var(--good);background:#eef7f1}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{position:relative;padding:.6rem 2.6rem .6rem 0;border-top:1px solid var(--mid);cursor:pointer}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;right:0;top:.7rem;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--mid);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.steps li.done::before{background:var(--good);color:#fff;content:"✓"}
+.steps li .more{display:none;color:var(--soft);margin-top:.25rem}
+.steps li.open .more{display:block}
+.flip{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.6rem}
+.flip button{text-align:start;border:1.5px solid var(--mid);background:#fff;border-radius:1rem;padding:.9rem;min-height:6rem;line-height:1.5}
+.flip button.on{background:var(--basalt);color:var(--stone);border-color:var(--basalt)}
+.flip button span{display:block;font-size:.9rem;opacity:.85;margin-top:.3rem}
+.wheel{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.wheel button{border:1.5px solid var(--mid);background:#fff;border-radius:.8rem;padding:.6rem .3rem;font-weight:600;min-height:52px}
+.wheel button.on{background:var(--apricot);border-color:var(--apricot)}
+
+/* nav */
+.nav{position:fixed;bottom:0;inset-inline:0;background:var(--basalt);padding:.5rem .5rem calc(.5rem + env(safe-area-inset-bottom));display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none}
+.nav button{flex:0 0 auto;background:transparent;color:var(--mid);border:0;border-radius:999px;padding:.45rem .8rem;font-weight:600;font-size:.9rem;min-height:44px;white-space:nowrap}
+.nav button.on{background:var(--apricot);color:var(--basalt)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0}
+.topbar a{color:var(--basalt);text-decoration:none;font-weight:700;font-family:"Reem Kufi",sans-serif}
+.mute{border:1.5px solid var(--basalt);background:transparent;border-radius:999px;padding:.3rem .8rem;min-height:40px}
+.next{display:flex;justify-content:space-between;margin:1.5rem 0 .5rem}
+.next button{border:1.5px solid var(--basalt);background:transparent;border-radius:999px;padding:.5rem 1.1rem;font-weight:600;min-height:44px}
+.next button.go{background:var(--basalt);color:var(--stone)}
+@media(prefers-reduced-motion:reduce){.station.on{animation:none}.bar i{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap topbar">
+  <a href="../">نقطة باب توما</a>
+  <button class="mute" id="mute" type="button" aria-pressed="false">🔊 الصوت شغّال</button>
+</div>
+
+<header class="cover" id="cover">
+  <div class="arch">
+    <svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><path d="M2 54V22a20 20 0 0 1 40 0v32" fill="none" stroke="#262422" stroke-width="3"/><circle cx="22" cy="20" r="3.5" fill="#E8892B"/><rect x="19.5" y="28" width="5" height="18" rx="2" fill="#E8892B"/></svg>
+    <h1>خطة الكشك</h1>
+    <p>يا أيمن، هي مو ورقة. هي الفكرة كلها بتسع تلعب فيها. كبس، جرّب، غيّر الأرقام، وشوف شو بيصير.</p>
+    <button class="big" id="start" type="button">يلا نبلّش ☕</button>
+  </div>
+</header>
+<div class="thresh"></div>
+
+<main class="wrap">
+
+<!-- 1 الساحة -->
+<section class="station" data-s="1">
+  <span class="tag">المحطة 1 من 8</span>
+  <h2>ساحة باب توما</h2>
+  <p>كل شي بيبدأ من الكشك اللي عندك. كبس ع أي شي بالساحة لتشوف ليش هالمكان ذهب.</p>
+  <svg class="scene" viewBox="0 0 400 260" role="img" aria-label="رسمة ساحة باب توما">
+    <rect width="400" height="260" fill="#F7F6F2"/>
+    <ellipse cx="200" cy="150" rx="120" ry="60" fill="#E9E6DE" stroke="#D9D5CC"/>
+    <ellipse cx="200" cy="150" rx="40" ry="20" fill="#D9D5CC"/>
+    <path d="M0 150H80M320 150H400M200 90V0M200 210V260" stroke="#D9D5CC" stroke-width="18"/>
+    <!-- gate -->
+    <g class="hot" data-k="gate"><rect x="150" y="12" width="100" height="60" fill="#262422"/><path d="M175 72V45a25 25 0 0 1 50 0v27" fill="#F7F6F2"/><rect x="150" y="12" width="100" height="8" fill="#D9D5CC"/><rect x="150" y="28" width="100" height="8" fill="#D9D5CC"/><rect x="150" y="44" width="100" height="8" fill="#D9D5CC"/><circle class="ring" cx="200" cy="42" r="40" fill="none" stroke="transparent"/></g>
+    <!-- kiosk -->
+    <g class="hot" data-k="kiosk"><rect x="268" y="112" width="44" height="36" rx="4" fill="#262422"/><rect x="268" y="112" width="44" height="6" fill="#D9D5CC"/><rect x="268" y="124" width="44" height="6" fill="#D9D5CC"/><rect x="268" y="136" width="44" height="6" fill="#D9D5CC"/><circle cx="290" cy="104" r="7" fill="#E8892B"/><text x="290" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#262422">i</text><circle class="ring" cx="290" cy="128" r="30" fill="none" stroke="transparent"/></g>
+    <!-- taxi -->
+    <g class="hot" data-k="taxi"><rect x="92" y="118" width="40" height="18" rx="5" fill="#E8C33B"/><rect x="100" y="110" width="24" height="10" rx="3" fill="#E8C33B"/><circle cx="101" cy="138" r="5" fill="#262422"/><circle cx="123" cy="138" r="5" fill="#262422"/><circle class="ring" cx="112" cy="126" r="28" fill="none" stroke="transparent"/></g>
+    <!-- hotel -->
+    <g class="hot" data-k="hotel"><rect x="30" y="190" width="60" height="50" fill="#fff" stroke="#262422" stroke-width="2"/><rect x="40" y="200" width="10" height="12" fill="#1E5B57"/><rect x="60" y="200" width="10" height="12" fill="#1E5B57"/><rect x="52" y="222" width="16" height="18" fill="#262422"/><circle class="ring" cx="60" cy="215" r="34" fill="none" stroke="transparent"/></g>
+    <!-- restaurant -->
+    <g class="hot" data-k="rest"><rect x="310" y="195" width="60" height="45" fill="#fff" stroke="#262422" stroke-width="2"/><rect x="310" y="188" width="60" height="10" fill="#E8892B"/><circle cx="330" cy="222" r="6" fill="none" stroke="#262422" stroke-width="2"/><circle cx="350" cy="222" r="6" fill="none" stroke="#262422" stroke-width="2"/><circle class="ring" cx="340" cy="215" r="34" fill="none" stroke="transparent"/></g>
+    <!-- visitors -->
+    <g class="hot" data-k="people"><circle cx="190" cy="160" r="7" fill="#1E5B57"/><rect x="184" y="168" width="12" height="18" rx="4" fill="#1E5B57"/><circle cx="212" cy="156" r="7" fill="#B8641A"/><rect x="206" y="164" width="12" height="18" rx="4" fill="#B8641A"/><rect x="222" y="170" width="8" height="12" fill="#262422"/><circle class="ring" cx="205" cy="170" r="30" fill="none" stroke="transparent"/></g>
+  </svg>
+  <div class="card" id="sq-card"><h3>كبس ع شي بالصورة</h3><p>البوابة، الكشك، التكسي، الفندق، المطعم، الناس.</p></div>
+  <div class="next"><span></span><button class="go" data-go="2">بعدين ←</button></div>
+</section>
+
+<!-- 2 يوم -->
+<section class="station" data-s="2">
+  <span class="tag">المحطة 2 من 8</span>
+  <h2>يوم ع الكشك</h2>
+  <p>حرّك الساعة وشوف مين بيمرّ وشو بيطلب.</p>
+  <label>الساعة: <strong id="hour-l">8 الصبح</strong></label>
+  <input type="range" id="hour" min="8" max="23" value="8" aria-label="الساعة">
+  <svg class="scene" viewBox="0 0 400 180" aria-hidden="true">
+    <rect width="400" height="180" fill="#F7F6F2"/>
+    <circle id="sun" cx="60" cy="40" r="18" fill="#E8C33B"/>
+    <rect x="0" y="130" width="400" height="50" fill="#E9E6DE"/>
+    <rect x="170" y="80" width="60" height="50" rx="4" fill="#262422"/><rect x="170" y="80" width="60" height="7" fill="#D9D5CC"/><rect x="170" y="94" width="60" height="7" fill="#D9D5CC"/><rect x="170" y="108" width="60" height="7" fill="#D9D5CC"/>
+    <circle cx="200" cy="70" r="9" fill="#E8892B"/>
+    <g id="crowd"></g>
+  </svg>
+  <div class="card"><h3 id="day-h">الصبح بكير</h3><p id="day-p">أهل الحي، قهوة ودخان. متل اليوم.</p><p class="note">زوار ساعدناهن لهلق: <strong class="num" id="helped">0</strong></p></div>
+  <div class="next"><button data-go="1">→ قبل</button><button class="go" data-go="3">بعدين ←</button></div>
+</section>
+
+<!-- 3 المصاري -->
+<section class="station" data-s="3">
+  <span class="tag">المحطة 3 من 8</span>
+  <h2>من وين بتجي المصاري؟</h2>
+  <p>النصيحة ببلاش. المصاري من الشي اللي حوالي النصيحة. كبس ع كل مصدر لتفعّله، وحرّك عدد الزوار.</p>
+  <label>زوار بتساعدهن باليوم: <strong id="vis-l">25</strong></label>
+  <input type="range" id="vis" min="5" max="60" value="25" aria-label="زوار باليوم">
+  <div class="row" id="coins"></div>
+  <div class="card">
+    <p>دخل جديد بالشهر، فوق القهوة والدخان:</p>
+    <p class="num" id="income">$0</p>
+    <div class="meter"><div class="bar"><i id="inc-bar"></i></div><span id="inc-note"></span></div>
+    <p class="note">المصاريف الجديدة بالشهر (موظف المسا، خط، طباعة): <strong>$300</strong>. اللي فوق هاد ربح.</p>
+  </div>
+  <div class="next"><button data-go="2">→ قبل</button><button class="go" data-go="4">بعدين ←</button></div>
+</section>
+
+<!-- 4 كشك ولا مكتب -->
+<section class="station" data-s="4">
+  <span class="tag">المحطة 4 من 8</span>
+  <h2>كشك ولا مكتب؟</h2>
+  <p>كبس ع كل واحد وشوف شو بيكلّف قبل ما يفوت أول زبون.</p>
+  <div class="vs">
+    <button class="card" id="pick-k" type="button"><h3>الكشك</h3><p class="num" id="k-cost">$2,800</p><p>مرة وحدة، وبعدها $300 بالشهر</p></button>
+    <button class="card" id="pick-o" type="button"><h3>مكتب</h3><p class="num" id="o-cost">$8,000+</p><p>أول سنة، قبل أي دخل</p></button>
+  </div>
+  <div class="card" id="vs-card"><h3>السؤال مو مين أحلى. السؤال مين بيلاقي الزبون.</h3><p>ما حدا بيفوت ع مكتب يسأل عن الطريق. بس الكل بيوقف عند كشك ع البوابة. المكتب بيجي بعدين، من مصاري الشبكة، مو من جيبتك.</p></div>
+  <div class="card"><p>شهور لحد ما يرجع رأس المال:</p>
+    <div class="meter"><span>الكشك</span><strong class="num" style="color:var(--good)">4 شهور</strong></div>
+    <div class="meter"><span>مكتب</span><strong class="num" style="color:var(--bad)">سنة ونص أو أكتر</strong></div>
+  </div>
+  <div class="next"><button data-go="3">→ قبل</button><button class="go" data-go="5">بعدين ←</button></div>
+</section>
+
+<!-- 5 الشركاء -->
+<section class="station" data-s="5">
+  <span class="tag">المحطة 5 من 8</span>
+  <h2>الشبكة</h2>
+  <p>الكشك لحاله ما بيعمل شي. قوته بالناس اللي حواليه. كبس ع كل واحد.</p>
+  <svg class="scene" viewBox="0 0 400 300" role="img" aria-label="شبكة الشركاء">
+    <rect width="400" height="300" fill="#F7F6F2"/>
+    <g stroke="#D9D5CC" stroke-width="2" id="links">
+      <line x1="200" y1="150" x2="70" y2="60"/><line x1="200" y1="150" x2="330" y2="60"/><line x1="200" y1="150" x2="50" y2="160"/><line x1="200" y1="150" x2="350" y2="160"/><line x1="200" y1="150" x2="90" y2="255"/><line x1="200" y1="150" x2="310" y2="255"/><line x1="200" y1="150" x2="200" y2="30"/>
+    </g>
+    <g class="hot" data-n="center"><circle cx="200" cy="150" r="34" fill="#E8892B"/><text x="200" y="156" text-anchor="middle" font-size="14" font-weight="700" fill="#262422">الكشك</text></g>
+    <g class="hot" data-n="hostel"><circle class="ring" cx="70" cy="60" r="30" fill="#fff" stroke="#262422" stroke-width="2"/><text x="70" y="65" text-anchor="middle" font-size="12" font-weight="600">هوستلات</text></g>
+    <g class="hot" data-n="guide"><circle class="ring" cx="330" cy="60" r="30" fill="#fff" stroke="#262422" stroke-width="2"/><text x="330" y="65" text-anchor="middle" font-size="12" font-weight="600">أدلّاء</text></g>
+    <g class="hot" data-n="driver"><circle class="ring" cx="50" cy="160" r="30" fill="#fff" stroke="#262422" stroke-width="2"/><text x="50" y="165" text-anchor="middle" font-size="12" font-weight="600">سواقين</text></g>
+    <g class="hot" data-n="rest"><circle class="ring" cx="350" cy="160" r="30" fill="#fff" stroke="#262422" stroke-width="2"/><text x="350" y="165" text-anchor="middle" font-size="12" font-weight="600">مطاعم</text></g>
+    <g class="hot" data-n="farm"><circle class="ring" cx="90" cy="255" r="30" fill="#fff" stroke="#262422" stroke-width="2"/><text x="90" y="260" text-anchor="middle" font-size="12" font-weight="600">مزارعين</text></g>
+    <g class="hot" data-n="abroad"><circle class="ring" cx="310" cy="255" r="30" fill="#fff" stroke="#262422" stroke-width="2"/><text x="310" y="260" text-anchor="middle" font-size="12" font-weight="600">شركا برّا</text></g>
+    <g class="hot" data-n="gov"><circle class="ring" cx="200" cy="30" r="26" fill="#fff" stroke="#262422" stroke-width="2"/><text x="200" y="35" text-anchor="middle" font-size="12" font-weight="600">الدولة</text></g>
+  </svg>
+  <div class="card" id="net-card"><h3>كبس ع دايرة</h3><p>كل واحد بيعطي شي وبياخد شي.</p></div>
+  <div class="next"><button data-go="4">→ قبل</button><button class="go" data-go="6">بعدين ←</button></div>
+</section>
+
+<!-- 6 الريف -->
+<section class="station" data-s="6">
+  <span class="tag">المحطة 6 من 8</span>
+  <h2>الريف والمواسم</h2>
+  <p>الشام القديمة أول خطوة. بس الأجنبي اللي بيدفع أكتر، بدو ينام بمزرعة ويقطف فستق بمورك. كبس ع شهر.</p>
+  <div class="wheel" id="wheel"></div>
+  <div class="card" id="season-card"><h3>اختار شهر</h3><p>لكل موسم تجربة، ولكل تجربة ناس بتعرفهن.</p></div>
+  <p class="note">الرحلة الكبيرة: مجموعة 12 شخص من برّا، 7 أيام، $900 للشخص = <strong class="num">$10,800</strong>. هاد أكتر من 3 شهور حجوزات ع الكشك، وما بدو مكتب. بدو منسّق وسواقين وعائلات.</p>
+  <div class="next"><button data-go="5">→ قبل</button><button class="go" data-go="7">بعدين ←</button></div>
+</section>
+
+<!-- 7 الطريق -->
+<section class="station" data-s="7">
+  <span class="tag">المحطة 7 من 8</span>
+  <h2>90 يوم</h2>
+  <p>كبس ع كل خطوة لما تخلصها. الهدف: نفتح رسمي يوم الأحد 22 تشرين التاني، قبل الميلاد بشهر.</p>
+  <ol class="steps" id="steps"></ol>
+  <div class="card"><p>خلصنا: <strong class="num" id="done-n">0</strong> من 8</p></div>
+  <div class="next"><button data-go="6">→ قبل</button><button class="go" data-go="8">بعدين ←</button></div>
+</section>
+
+<!-- 8 المخاطر -->
+<section class="station" data-s="8">
+  <span class="tag">المحطة 8 من 8</span>
+  <h2>شو ممكن يخرّب؟</h2>
+  <p>كل مشروع إله أشياء بتخوّف. اقلب الكرت لتشوف شو منعمل.</p>
+  <div class="flip" id="risks"></div>
+  <div class="card" style="margin-top:1.5rem">
+    <h3>لأبوك</h3>
+    <p>الخطة الكاملة بالأرقام والمصادر، بالإنكليزي، موجودة بملف منفصل. اطلبها من مايكل أو افتح الرابط إذا معك.</p>
+    <p style="margin-top:.5rem"><a href="../" style="color:var(--teal)">وهاد موقع الكشك نفسه، اللي رح يشوفه الزوار ←</a></p>
+  </div>
+  <div class="next"><button data-go="7">→ قبل</button><button class="go" data-go="1">من الأول ↻</button></div>
+</section>
+
+</main>
+
+<nav class="nav" id="nav" aria-label="المحطات">
+  <button data-go="1">الساحة</button><button data-go="2">يوم</button><button data-go="3">المصاري</button><button data-go="4">كشك ولا مكتب</button><button data-go="5">الشبكة</button><button data-go="6">الريف</button><button data-go="7">90 يوم</button><button data-go="8">المخاطر</button>
+</nav>
+
+<script>
+/* ---------- sound (synthesised, no files) ---------- */
+let AC=null, muted=false;
+function ac(){ if(!AC){ AC=new (window.AudioContext||window.webkitAudioContext)(); } if(AC.state==="suspended") AC.resume(); return AC; }
+function tone(f,t=0.12,type="sine",g=0.15,delay=0){ if(muted) return; const c=ac(),o=c.createOscillator(),v=c.createGain(); o.type=type;o.frequency.value=f; v.gain.setValueAtTime(0,c.currentTime+delay); v.gain.linearRampToValueAtTime(g,c.currentTime+delay+0.01); v.gain.exponentialRampToValueAtTime(0.001,c.currentTime+delay+t); o.connect(v).connect(c.destination); o.start(c.currentTime+delay); o.stop(c.currentTime+delay+t+0.05); }
+const S={
+  click:()=>tone(660,0.08,"triangle",0.08),
+  coin:()=>{tone(1320,0.1,"sine",0.12);tone(1760,0.25,"sine",0.12,0.08);},
+  good:()=>{[523,659,784].forEach((f,i)=>tone(f,0.3,"triangle",0.1,i*0.07));},
+  bad:()=>{tone(220,0.3,"sawtooth",0.06);tone(180,0.35,"sawtooth",0.06,0.1);},
+  pour:()=>{ if(muted) return; const c=ac(),b=c.createBuffer(1,c.sampleRate*0.6,c.sampleRate),d=b.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*(1-i/d.length); const s=c.createBufferSource(); s.buffer=b; const f=c.createBiquadFilter(); f.type="bandpass"; f.frequency.value=1800; f.Q.value=0.8; const v=c.createGain(); v.gain.value=0.25; s.connect(f).connect(v).connect(c.destination); s.start(); },
+  tap:()=>tone(880,0.05,"square",0.04),
+  oud:()=>{[293.66,329.63,349.23,392,440].forEach((f,i)=>tone(f,0.5,"triangle",0.09,i*0.18));},
+};
+document.getElementById("mute").addEventListener("click",e=>{ muted=!muted; e.currentTarget.textContent=muted?"🔇 الصوت مسكّر":"🔊 الصوت شغّال"; e.currentTarget.setAttribute("aria-pressed",muted); if(!muted) S.click(); });
+
+/* ---------- navigation ---------- */
+const stations=[...document.querySelectorAll(".station")], navBtns=[...document.querySelectorAll("#nav button")];
+function go(n){ stations.forEach(s=>s.classList.toggle("on",s.dataset.s==n)); navBtns.forEach(b=>b.classList.toggle("on",b.dataset.go==n)); document.getElementById("cover").style.display="none"; window.scrollTo({top:0,behavior:"smooth"}); try{localStorage.setItem("btp-plan",n)}catch(e){} }
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-go]"); if(b){ S.click(); go(b.dataset.go); } });
+document.getElementById("start").addEventListener("click",()=>{ S.pour(); go(1); });
+
+/* ---------- 1 square ---------- */
+const SQ={
+  gate:["البوابة الشرقية","كل أجنبي جاي ع الشام القديمة بيفوت من بوابة. وهي البوابة اللي بيفوت منها كل اللي نازل بباب توما والقصاع. اللي بيوقف هون أول شي، منّه ضايع ومتوتر وبدو حدا يسأله. انت هاد الحدا."],
+  kiosk:["الكشك","هون ما منغيّر شي كتير. منخلّي القهوة والدخان لأنهن بيدفعوا الإيجار. ومنضيف لوحة كبيرة، خريطة ع الحيط، حرف i برتقالي بينشاف من بعيد، وواحد بيحكي إنكليزي بعد الظهر."],
+  taxi:["موقف التكاسي","السياح بينزلوا هون بالضبط، قدّام الكشك. الفنادق بتجيب نزلاءها بالغولف كار من هون. يعني الزبون بيوصل لعندك هو، انت ما بتلحقه."],
+  hotel:["بيوت الضيافة والفنادق","بيت المملوكة، دار المملوكة، بيت الوالي، وهوستلات العقيبة والقيمرية. كلهن بيبعتوا نزلاء يسألوا. منتفق معهن: هنّي بيدلّوا علينا، نحنا منبعتلهن نزلاء، وبنتحاسب كل أحد."],
+  rest:["المطاعم","من باب توما لباب شرقي أكتر مطاعم الشام القديمة. كل مطعم بيدفع 25$ بالشهر ليكون اسمه ع الخريطة اللي منوزّعها ببلاش. 8 مطاعم = 200$ بالشهر قبل ما تبيع فنجان قهوة."],
+  people:["الزوار","بالنص الأول من 2026 إجا ع سوريا 3.5 مليون زائر، منهن 719 ألف أجنبي، يعني 5 أضعاف السنة اللي قبل. وما في ولا نقطة معلومات ع الشارع بكل الشام. هي الفجوة اللي منعبّيها."],
+};
+document.querySelectorAll("[data-k]").forEach(g=>g.addEventListener("click",()=>{ S.tap(); document.querySelectorAll("[data-k]").forEach(x=>x.classList.remove("sel")); g.classList.add("sel"); const [h,p]=SQ[g.dataset.k]; document.getElementById("sq-card").innerHTML=`<h3>${h}</h3><p>${p}</p>`; }));
+
+/* ---------- 2 day ---------- */
+const DAY=[[8,"الصبح بكير","أهل الحي، قهوة ودخان. متل اليوم. وبتحدّث اللوح: الطقس، سعر الصرف، أوقات الأموي.",2,"#262422"],
+ [10,"أول سياح","نازلين من التكسي، ضايعين. 'وين الشارع المستقيم؟' خريطة ببلاش وشرح دقيقة. واحد منهن بيحجز جولة لبكرا.",4,"#1E5B57"],
+ [13,"الضهر","مي ومشروبات باردة لكل اللي عم يمشي بالأسواق. طلبات تكسي للمطار. حدا بدو خط موبايل، منمشي معه للمركز.",6,"#B8641A"],
+ [16,"العصر","الموظف اللي بيحكي إنكليزي بيستلم. مجموعة بتسأل عن معلولا لبكرا. حجز سيارة 7 ركاب.",5,"#1E5B57"],
+ [19,"المسا","أكتر وقت. الناس رايحة تتعشى بباب شرقي. 'وين منتعشى؟' كرت مطعم شريك. قهوة قبل ما يكملوا.",8,"#B8641A"],
+ [22,"آخر الليل","راجعين من العشا، قهوة أخيرة، تذكار صغير. منعدّ المصاري ومنفرز عمولات الشركاء بمغلف.",3,"#262422"]];
+const hour=document.getElementById("hour"), crowd=document.getElementById("crowd"), sun=document.getElementById("sun");
+function renderDay(){ const h=+hour.value; const row=[...DAY].reverse().find(r=>h>=r[0]); document.getElementById("hour-l").textContent=h<12?h+" الصبح":h==12?"12 الضهر":(h-12)+" "+(h<18?"العصر":"المسا"); document.getElementById("day-h").textContent=row[1]; document.getElementById("day-p").textContent=row[2]; crowd.innerHTML=""; for(let i=0;i<row[3];i++){ const x=40+i*45+(i%2)*10, y=110+(i%3)*6; crowd.insertAdjacentHTML("beforeend",`<circle cx="${x}" cy="${y}" r="6" fill="${row[4]}"/><rect x="${x-5}" y="${y+7}" width="10" height="15" rx="4" fill="${row[4]}"/>`);} const t=(h-8)/15; sun.setAttribute("cx",40+t*320); sun.setAttribute("cy",40+Math.sin(t*Math.PI)*-20+ (t>0.8?30:0)); sun.setAttribute("fill",t>0.8?"#D9D5CC":"#E8C33B"); let helped=0; DAY.forEach(r=>{ if(h>=r[0]) helped+=r[3]; }); document.getElementById("helped").textContent=helped; }
+hour.addEventListener("input",()=>{ S.tap(); renderDay(); }); renderDay();
+
+/* ---------- 3 money ---------- */
+const COINS=[["خريطة برعاية",v=>8*25,"8 مطاعم × 25$"],["جولات مشي",v=>v*30/15*3,"من كل 15 زائر، واحد بيحجز جولة: 3$ عمولة"],["رحلات يوم",v=>v*30/50*8,"واحد من 50 بيحجز رحلة: 8$ عمولة"],["تكاسي ومطار",v=>v*30/25*3,"واحد من 25 بيحجز سيارة: 3$"],["إقامة",v=>v*30/50*4,"4$ عن كل نزيل منبعته لبيت ضيافة"],["تذكارات",v=>v*30/3,"هامش الربح ع قطع الحرفيين"],["قهوة للزوار",v=>v*30*0.16,"فنجان زيادة للسياح، بسعر السياح"]];
+const coinsEl=document.getElementById("coins"), on=new Set([0,1,2,3,4,5,6]);
+COINS.forEach((c,i)=>{ const b=document.createElement("button"); b.className="chip coin on"; b.textContent=c[0]; b.title=c[2]; b.addEventListener("click",()=>{ if(on.has(i)){on.delete(i);b.classList.remove("on");S.bad();}else{on.add(i);b.classList.add("on");S.coin();} money(); }); coinsEl.appendChild(b); });
+const vis=document.getElementById("vis");
+function money(){ const v=+vis.value; document.getElementById("vis-l").textContent=v; let t=0; COINS.forEach((c,i)=>{ if(on.has(i)) t+=c[1](v); }); t=Math.round(t); document.getElementById("income").textContent="$"+t.toLocaleString("en-US"); document.getElementById("inc-bar").style.width=Math.min(100,t/20)+"%"; document.getElementById("inc-note").textContent=t<300?"لسا ما غطّينا المصاريف":t<990?"ماشي الحال":"هيك بنرجع رأس المال بـ 4 شهور"; }
+vis.addEventListener("input",()=>{ S.tap(); money(); }); money();
+
+/* ---------- 4 kiosk vs office ---------- */
+const VS={k:["الكشك: 2,800$ مرة وحدة","لوحة، خريطة، تلفون، بضاعة، وموظف للمسا. إذا الفكرة ما مشيت، خسرت لوحة. وإذا المحافظة نقلت الكشك، الواتساب والشركاء والتقييمات بيمشوا معك."],o:["مكتب: 8,000$ وأكتر أول سنة","إيجار، تأمين، فرش، موظف دوام كامل، ورخصة مكتب سياحة بكفالة بنكية. كل هاد قبل أول زبون. والزبون أصلًا مو داخل ع مكتب، هو واقف ع الساحة."]};
+document.getElementById("pick-k").addEventListener("click",()=>{ S.good(); document.getElementById("pick-k").classList.add("win"); document.getElementById("pick-o").classList.remove("win"); document.getElementById("vs-card").innerHTML=`<h3>${VS.k[0]}</h3><p>${VS.k[1]}</p>`; });
+document.getElementById("pick-o").addEventListener("click",()=>{ S.bad(); document.getElementById("pick-o").classList.add("win"); document.getElementById("pick-k").classList.remove("win"); document.getElementById("vs-card").innerHTML=`<h3>${VS.o[0]}</h3><p>${VS.o[1]}</p>`; });
+
+/* ---------- 5 network ---------- */
+const NET={center:["الكشك","بالنص. بيستقبل، بيدلّ، بيحجز، وبيتحاسب كل أحد. هو اللي بيحمل الاسم والثقة."],hostel:["الهوستلات وبيوت الضيافة","بيعطوك: نزلاء بيسألوا. بتعطيهن: نزلاء بلا حجز. 3 لـ 5$ عن كل واحد، بالاتجاهين."],guide:["الأدلّاء المرخّصين","بيعطوك: الجولة. بتعطيهن: الزبون. عمولة 10 لـ 15%. لازم رخصة من وزارة السياحة، هيك نحنا محميين."],driver:["السواقين","بيعطوك: سعر ثابت وسيارة نظيفة. بتعطيهن: شغل كل يوم. 3$ عن كل مشوار، والمطار 25$ للزبون."],rest:["المطاعم","بيعطوك: 25$ بالشهر. بتعطيهن: اسمهن ع الخريطة وزبون جوعان كل مسا."],farm:["المزارعين وعائلات الريف","بيعطوك: التجربة اللي ما في متلها. بتعطيهن: ضيوف بيدفعوا. أيمن عنده ناس بحماة وحوران ومورك. هون الذهب الحقيقي."],abroad:["الشركاء برّا","بيعطوك: مجموعة جاهزة من 12 شخص. بتعطيهن: كل شي من المطار للمطار. هون بتبلّش المصاري الكبيرة، بس بعد ما نثبت حالنا بالشام."],gov:["المحافظة ووزارة السياحة","بيعطوك: الرخصة والسكوت. بتعطيهن: كشك مرتّب، ما بيبيع كحول، وبيدلّ ع منصة لبّيك للشكاوى. ونصيب: سرعة وتنسيق مسبق للمجموعات، مو شي تاني."]};
+document.querySelectorAll("[data-n]").forEach(g=>g.addEventListener("click",()=>{ S.tap(); document.querySelectorAll("[data-n]").forEach(x=>x.classList.remove("sel")); g.classList.add("sel"); const [h,p]=NET[g.dataset.n]; document.getElementById("net-card").innerHTML=`<h3>${h}</h3><p>${p}</p>`; }));
+
+/* ---------- 6 seasons ---------- */
+const SEASONS=["كانون2","شباط","آذار","نيسان","أيار","حزيران","تموز","آب","أيلول","تشرين1","تشرين2","كانون1"];
+const SX={0:["الشتا","مونة: مكدوس، زعتر، صابون غار بالقلمون. والميلاد بباب توما أكتر موسم للساحة."],1:["الشتا","موسم هادي. الوقت المناسب نرتّب الشركاء ونجهّز لأيار."],2:["آذار","بيبلّش الربيع. سوريين من برّا بيجوا بالعيد."],3:["نيسان","أحلى طقس للمشي. الزبداني وبلودان بتفتح."],4:["قطاف الورد الشامي بالمراح","قبل الشروق مع الأهالي، تقطير، ومهرجان الورد آخر الشهر. 60$ للشخص."],5:["حصاد القمح بحوران وكرز الزبداني","غدا تحت الشجر، بصرى بعد الضهر."],6:["الصيف","شوب بالشام. الزبداني وبلودان كل يوم، ومشمش الغوطة."],7:["قطاف الفستق بمورك","بلد أيمن. ليلتين عند عائلة، قطاف الصبح، 55$ للشخص بالليلة. هي التجربة اللي ما حدا غيرنا بيقدر يعملها."],8:["الفستق والعنب والدبس","مورك لسا شغّالة، والقلمون عم يعصر عنب."],9:["قطاف الزيتون بحوران وريف حماة","القطاف والمعصرة وقنينة زيت أول عصرة. 45$ للشخص."],10:["الزيتون","آخر الموسم. وبنبلّش نحضّر للميلاد."],11:["الميلاد بباب توما","أكتر أسبوعين بالسنة ع الساحة. دوام أطول، تذكارات أكتر، أوقات القداديس ع اللوح."]};
+const wheel=document.getElementById("wheel");
+SEASONS.forEach((m,i)=>{ const b=document.createElement("button"); b.textContent=m; b.addEventListener("click",()=>{ S.oud(); wheel.querySelectorAll("button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); document.getElementById("season-card").innerHTML=`<h3>${SX[i][0]}</h3><p>${SX[i][1]}</p>`; }); wheel.appendChild(b); });
+
+/* ---------- 7 steps ---------- */
+const STEPS=[["الأسبوع 1: الرخصة","نروح ع المحافظة بورق الكشك. منسأل عن تغيير النشاط ورخصة اللوحة. ما منطبع شي قبل ما نتأكد."],["الأسبوع 2: واتساب والشركاء","خط جديد للكشك، واتساب بيزنس، ردود جاهزة. ومنزور أول 10 شركاء بورقة وحدة."],["الأسبوع 3: الشعار والخريطة","منوافق ع الرسمة، منبيع أول 4 أماكن ع الخريطة، ومنجرّب حجز مع كل دليل وسائق."],["الأسبوع 4: اللوحة","منركّب اللوحة والخريطة ع الحيط، منطبع 2000 خريطة، ومنوظّف واحد بيحكي إنكليزي."],["الأسبوع 5: الافتتاح","يومين تدريب، منضيف الكشك ع خرائط Google، وافتتاح الأحد 22 تشرين التاني: قهوة ببلاش لأول 50 واحد بياخد خريطة."],["الأسابيع 6 لـ 8: التقييمات","منجمع تقييمات ع Google، منشور كل يوم ع القناة، ومنتحاسب مع الشركاء كل أحد."],["الميلاد ورأس السنة","أكبر موسم. دوام أطول، بضاعة أكتر، أوقات القداديس ع اللوح."],["اليوم 90: نحكم","منقارن بالأرقام: 25 زائر باليوم؟ 25 حجز بالأسبوع؟ 8 رعاة؟ وبعدها منقرر: مورك، المجموعات، وكشك تاني."]];
+const stepsEl=document.getElementById("steps");
+STEPS.forEach((s,i)=>{ const li=document.createElement("li"); li.innerHTML=`<strong>${s[0]}</strong><div class="more">${s[1]}</div>`; li.addEventListener("click",()=>{ if(li.classList.contains("open")){ li.classList.toggle("done"); li.classList.contains("done")?S.good():S.click(); } else { S.click(); li.classList.add("open"); } document.getElementById("done-n").textContent=stepsEl.querySelectorAll(".done").length; }); stepsEl.appendChild(li); });
+
+/* ---------- 8 risks ---------- */
+const RISKS=[["المحافظة ما جدّدت الرخصة","الورق أول شي. ونخلّي الواتساب والشركاء والتقييمات ينقلوا معنا لو تنقّل الكشك."],["Google ما قبل الكشك","صورة واضحة للوحة، أصحاب بيأكدوا المكان، وOpenStreetMap وApple Maps احتياط."],["حادث أمني وقلّوا السياح","اسم محايد، أرقام الطوارئ ع اللوح، والقهوة والدخان بيضلّوا يدفعوا الإيجار."],["الشتا هادي","أهل الحي، طلاب العربي، والميلاد. وإذا لزم، موظف المسا بس ع الويكند."],["شريك غشّ زبون","سعر مكتوب، كود لكل حجز، وشكوى وحدة بتوقّفه."],["الموظف وعد بشي مو صح","ورقة 25 سؤال وجواب، وقاعدة: 'خليني أتأكد وبرد عليك خلال ربع ساعة'."],["حدا قلّدنا جنبنا","اللي أول ع Google ومعه تقييمات وعقود مع الشركاء، هو اللي بيربح."],["الليرة تغيّرت","منسعّر بالدولار ومنحوّل بسعر اليوم المكتوب ع اللوح."]];
+const risksEl=document.getElementById("risks");
+RISKS.forEach(r=>{ const b=document.createElement("button"); b.type="button"; b.innerHTML=`<strong>${r[0]}</strong><span>اقلب الكرت</span>`; let f=false; b.addEventListener("click",()=>{ f=!f; b.classList.toggle("on",f); f?S.good():S.click(); b.innerHTML=f?`<strong>شو منعمل</strong><span>${r[1]}</span>`:`<strong>${r[0]}</strong><span>اقلب الكرت</span>`; }); risksEl.appendChild(b); });
+
+/* resume where he left off */
+try{ const s=localStorage.getItem("btp-plan"); if(s){ /* keep cover; nav remembers */ navBtns.forEach(b=>b.classList.toggle("on",b.dataset.go==s)); } }catch(e){}
+</script>
+</body>
+</html>
