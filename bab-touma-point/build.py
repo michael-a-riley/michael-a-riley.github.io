@@ -103,6 +103,8 @@ def section_head(p, h1, intro):
 
 def price(p, item):
     T = p.t
+    if item.get("price") is None:
+        return f"<span class='price'>{e(T(UI['ask_price']))}</span>"
     return f"<span class='price'>{e(T(UI['from']))} ${item['price']} <small>{e(T(UI[item['unit']]))}</small></span>"
 
 def card_grid(p, items, base):
@@ -121,7 +123,11 @@ def card_grid(p, items, base):
 
 def list_page(p, data, base):
     T = p.t
-    body = section_head(p, T(data["title"]), T(data["intro"])) + f"<div class='wrap'>{card_grid(p, data['items'], base)}<p class='fine'>{e(T(UI['indicative']))}</p></div>"
+    cal = ""
+    if "calendar" in data:
+        rows = "".join(f"<tr><th>{e(T(a))}</th><td>{e(T(b))}</td></tr>" for a, b in data["calendar"])
+        cal = f"<h2>{e(T(data['calendar_title']))}</h2><table class='board'>{rows}</table>"
+    body = section_head(p, T(data["title"]), T(data["intro"])) + f"<div class='wrap'>{card_grid(p, data['items'], base)}<p class='fine'>{e(T(UI['indicative']))}</p>{cal}</div>"
     return shell(p, f"{T(data['title'])} | {T(SITE['name'])}", T(data["intro"]), f"<main>{body}</main>")
 
 def detail_page(p, data, it, base):
@@ -236,7 +242,7 @@ def about_page(p):
 
 def book_page(p):
     T = p.t; L = p.lang
-    groups = [(WALKS, "walks"), (TRIPS, "trips"), (EXPERIENCES, "experiences")]
+    groups = [(WALKS, "walks"), (TRIPS, "trips"), (EXPERIENCES, "experiences"), (RURAL, "rural")]
     opts = ""
     for data, base in groups:
         opts += f"<optgroup label='{e(T(data['title']))}'>" + "".join(f"<option value='{it['slug']}'>{e(T(it['name']))}</option>" for it in data["items"]) + "</optgroup>"
@@ -271,7 +277,7 @@ def build():
     n = 0
     for L in ("ar", "en"):
         write(Page(L, ""), home_page(Page(L, ""))); n += 1
-        for data, base in ((WALKS, "walks/"), (TRIPS, "trips/"), (EXPERIENCES, "experiences/")):
+        for data, base in ((WALKS, "walks/"), (TRIPS, "trips/"), (EXPERIENCES, "experiences/"), (RURAL, "rural/")):
             write(Page(L, base), list_page(Page(L, base), data, base)); n += 1
             for it in data["items"]:
                 pth = base + it["slug"] + "/"
