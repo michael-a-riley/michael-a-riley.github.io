@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bab Touma Point | نقطة باب توما</title>
+<meta name="description" content="Free directions, maps and honest local help at Bab Touma, the eastern gate of Old Damascus. Licensed guides, day trips, airport transfers, phone credit, coffee.">
+<meta property="og:title" content="Bab Touma Point | نقطة باب توما">
+<meta property="og:description" content="Free directions and honest local help at the Bab Touma gate, Old Damascus.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#262422">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 60V30a24 24 0 0 1 48 0v30z' fill='%23262422'/%3E%3Ccircle cx='32' cy='26' r='4' fill='%23E8892B'/%3E%3Crect x='29' y='34' width='6' height='18' rx='2' fill='%23E8892B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristInformationCenter",
+  "name": "Bab Touma Point",
+  "alternateName": "نقطة باب توما",
+  "description": "Walk-up visitor information kiosk with coffee and cold drinks at Bab Touma Square, Old City of Damascus.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bab Touma Square",
+    "addressLocality": "Damascus",
+    "addressCountry": "SY"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 33.513502, "longitude": 36.315654 },
+  "telephone": "+963985390583",
+  "openingHours": "Mo-Su 08:00-23:00"
+}
+</script>
+
+<style>
+  :root {
+    --basalt: #262422;
+    --limestone: #F7F6F2;
+    --stone-mid: #D9D5CC;
+    --apricot: #E8892B;
+    --apricot-deep: #B8641A;
+    --door-teal: #1E5B57;
+    --ink: #262422;
+    --ink-soft: #5C5853;
+    --band: 14px;
+    --measure: 36rem;
+    --font-display: "Reem Kufi", "IBM Plex Sans Arabic", system-ui, sans-serif;
+    --font-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--limestone);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--door-teal); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--apricot);
+    outline-offset: 3px;
+  }
+
+  /* Language switching: every translatable string exists twice */
+  html[lang="en"] .ar { display: none !important; }
+  html[lang="ar"] .en { display: none !important; }
+  html[lang="ar"] body { font-size: 1.125rem; line-height: 1.75; }
+
+  .wrap { width: min(100% - 2rem, 64rem); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: .75rem 0;
+  }
+  .wordmark {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+    color: var(--basalt); text-decoration: none;
+  }
+  .lang {
+    font: inherit; font-size: .95rem; font-weight: 500;
+    background: transparent; color: var(--basalt);
+    border: 1.5px solid var(--basalt); border-radius: 999px;
+    padding: .3rem .9rem; cursor: pointer; min-height: 40px;
+  }
+
+  /* Hero: the gate set into ablaq masonry */
+  .gate {
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        var(--basalt) 0 var(--band),
+        var(--stone-mid) var(--band) calc(var(--band) * 2)
+      );
+    padding: 3.5rem 1rem 0;
+  }
+  .arch {
+    width: min(100%, 34rem);
+    margin-inline: auto;
+    background: var(--limestone);
+    border-radius: 17rem 17rem 0 0;
+    padding: 4.5rem 1.75rem 2.75rem;
+    text-align: center;
+  }
+  .mark { width: 44px; height: 54px; margin: 0 auto 1.25rem; }
+  .arch h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
+    line-height: 1.05;
+    margin: 0;
+    letter-spacing: -.01em;
+  }
+  .arch .other-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+    color: var(--ink-soft);
+    margin: .4rem 0 1.25rem;
+  }
+  .arch p.lead { max-width: 26rem; margin: 0 auto 1.75rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    min-height: 48px; padding: .7rem 1.4rem;
+    border-radius: 999px; font-weight: 600; text-decoration: none;
+    font-size: 1rem;
+  }
+  .btn-primary { background: var(--apricot); color: var(--basalt); }
+  .btn-primary:hover { background: var(--apricot-deep); color: var(--limestone); }
+  .btn-secondary { border: 1.5px solid var(--basalt); color: var(--basalt); }
+  .btn-secondary:hover { background: var(--basalt); color: var(--limestone); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .threshold { height: 6px; background: var(--apricot); }
+
+  /* Sections */
+  section { padding: 3.5rem 0; }
+  section + section { border-top: 1px solid var(--stone-mid); }
+  h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.1rem); line-height: 1.2;
+    margin: 0 0 .5rem;
+  }
+  .intro { color: var(--ink-soft); max-width: var(--measure); margin: 0 0 2rem; }
+
+  .help {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; gap: 0 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  }
+  .help li {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--stone-mid);
+    display: grid; grid-template-columns: 1fr auto; gap: .15rem 1rem;
+    align-items: baseline;
+  }
+  .help h3 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 1.25rem; margin: 0;
+  }
+  .help .price { font-size: .9rem; font-weight: 600; color: var(--door-teal); white-space: nowrap; }
+  .help .price.free { color: var(--apricot-deep); }
+  .help p { grid-column: 1 / -1; margin: 0; color: var(--ink-soft); max-width: 32rem; }
+  @media (max-width: 30rem) {
+    .help li { grid-template-columns: 1fr; }
+    .help .price { order: 3; }
+  }
+
+  .find { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+  @media (min-width: 52rem) { .find { grid-template-columns: 1fr 1.2fr; align-items: start; } }
+  .map {
+    width: 100%; aspect-ratio: 4 / 3; border: 0;
+    border-radius: 12rem 12rem 0 0; background: var(--stone-mid);
+  }
+  dl.facts { margin: 0; }
+  dl.facts dt { font-weight: 600; margin-top: 1.1rem; }
+  dl.facts dt:first-child { margin-top: 0; }
+  dl.facts dd { margin: .15rem 0 0; color: var(--ink-soft); }
+
+  .tips { list-style: none; padding: 0; margin: 0; max-width: 44rem; }
+  .tips li { padding: .9rem 0; border-top: 1px solid var(--stone-mid); }
+  .tips strong { display: block; }
+  .tips span.note { color: var(--ink-soft); }
+
+  footer {
+    background: var(--basalt); color: var(--stone-mid);
+    padding: 2.5rem 0 3rem; font-size: .95rem;
+  }
+  footer p { max-width: var(--measure); margin: 0 0 .75rem; }
+  footer a { color: var(--limestone); }
+
+  /* Floating WhatsApp button on small screens, the one action that matters */
+  .float {
+    position: fixed; inset-inline-end: 1rem; bottom: 1rem; z-index: 10;
+    box-shadow: 0 4px 14px rgba(38, 36, 34, .25);
+  }
+  @media (min-width: 52rem) { .float { display: none; } }
+
+  /* One deliberate motion: the gate opens on load */
+  @media (prefers-reduced-motion: no-preference) {
+    .arch { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes rise { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap topbar">
+  <a class="wordmark" href="#top"><span class="en">Bab Touma Point</span><span class="ar">نقطة باب توما</span></a>
+  <button class="lang" id="lang" type="button" aria-label="Switch language">
+    <span class="en" lang="ar">عربي</span><span class="ar" lang="en">English</span>
+  </button>
+</div>
+
+<header class="gate" id="top">
+  <div class="arch">
+    <svg class="mark" viewBox="0 0 44 54" aria-hidden="true">
+      <path d="M2 54V22a20 20 0 0 1 40 0v32" fill="none" stroke="#262422" stroke-width="3"/>
+      <circle cx="22" cy="20" r="3.5" fill="#E8892B"/>
+      <rect x="19.5" y="28" width="5" height="18" rx="2" fill="#E8892B"/>
+    </svg>
+    <h1><span class="en">Bab Touma Point</span><span class="ar">نقطة باب توما</span></h1>
+    <p class="other-name" aria-hidden="true"><span class="en">نقطة باب توما</span><span class="ar">Bab Touma Point</span></p>
+    <p class="lead">
+      <span class="en">Coffee, directions and honest local help at the eastern gate of Old Damascus. The map and the advice are free.</span>
+      <span class="ar">قهوة، دليل للطريق، ومساعدة محلية صادقة عند البوابة الشرقية لدمشق القديمة. الخريطة والنصيحة مجانًا.</span>
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary js-wa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+        <span class="en">Message us on WhatsApp</span><span class="ar">راسلنا على واتساب</span>
+      </a>
+      <a class="btn btn-secondary js-maps" href="#" target="_blank" rel="noopener">
+        <span class="en">Open in Google Maps</span><span class="ar">افتح في خرائط Google</span>
+      </a>
+    </div>
+  </div>
+</header>
+<div class="threshold" aria-hidden="true"></div>
+
+<main>
+  <section id="help">
+    <div class="wrap">
+      <h2><span class="en">What we can help with</span><span class="ar">بماذا نساعدك</span></h2>
+      <p class="intro">
+        <span class="en">Walk up to the kiosk or send a message. Tours and transfers are run by licensed local partners; we book them for you at the posted price.</span>
+        <span class="ar">تعال إلى الكشك أو أرسل لنا رسالة. الجولات والتنقلات يقدّمها شركاء محليون مرخّصون، ونحجزها لك بالسعر المعلن.</span>
+      </p>
+      <ul class="help">
+        <li>
+          <h3><span class="en">Directions and a free map</span><span class="ar">الطريق وخريطة مجانية</span></h3>
+          <span class="price free"><span class="en">Free</span><span class="ar">مجانًا</span></span>
+          <p><span class="en">Straight Street, the Umayyad Mosque, the churches of Bab Touma, the souqs. We show you the way in under a minute.</span><span class="ar">الشارع المستقيم، الجامع الأموي، كنائس باب توما، الأسواق. نرشدك إلى الطريق خلال دقيقة.</span></p>
+        </li>
+        <li>
+          <h3><span class="en">Old City walks with a licensed guide</span><span class="ar">جولات في المدينة القديمة مع دليل مرخّص</span></h3>
+          <span class="price"><span class="en">Ask for today's price</span><span class="ar">اسأل عن سعر اليوم</span></span>
+          <p><span class="en">Two to three hours on foot, in English, French or Arabic. Book today for tomorrow morning.</span><span class="ar">ساعتان إلى ثلاث ساعات سيرًا على الأقدام، بالعربية أو الإنجليزية أو الفرنسية. احجز اليوم لصباح الغد.</span></p>
+        </li>
+        <li>
+          <h3><span class="en">Day trips</span><span class="ar">رحلات ليوم واحد</span></h3>
+          <span class="price"><span class="en">Ask for today's price</span><span class="ar">اسأل عن سعر اليوم</span></span>
+          <p><span class="en">Maaloula and Saydnaya, Bosra, Palmyra. A vetted driver, and a guide if you want one.</span><span class="ar">معلولا وصيدنايا، بصرى، تدمر. سائق موثوق، ودليل إن رغبت.</span></p>
+        </li>
+        <li>
+          <h3><span class="en">Airport transfers and trusted taxis</span><span class="ar">نقل من وإلى المطار وتكاسي موثوقة</span></h3>
+          <span class="price"><span class="en">Fixed prices</span><span class="ar">أسعار ثابتة</span></span>
+          <p><span class="en">Prices are posted at the kiosk, so there is nothing to haggle over.</span><span class="ar">الأسعار معلنة على الكشك، فلا داعي للمساومة.</span></p>
+        </li>
+        <li>
+          <h3><span class="en">Phone credit and SIM help</span><span class="ar">رصيد للهاتف ومساعدة في الشريحة</span></h3>
+          <span class="price"><span class="en">Credit at face value</span><span class="ar">الرصيد بسعره</span></span>
+          <p><span class="en">Top up here. For a new SIM we walk you to the nearest authorised shop and help with registration.</span><span class="ar">اشحن رصيدك هنا. ولشريحة جديدة نرافقك إلى أقرب مركز معتمد ونساعدك في التسجيل.</span></p>
+        </li>
+        <li>
+          <h3><span class="en">Souvenirs from local makers</span><span class="ar">تذكارات من صنع حرفيين محليين</span></h3>
+          <span class="price"><span class="en">Prices marked</span><span class="ar">الأسعار مكتوبة</span></span>
+          <p><span class="en">Small, light pieces that fit in a bag: brocade, inlaid wood, glass, postcards.</span><span class="ar">قطع صغيرة وخفيفة تناسب الحقيبة: بروكار، موزاييك خشبي، زجاج، بطاقات بريدية.</span></p>
+        </li>
+        <li>
+          <h3><span class="en">Coffee, cold drinks and water</span><span class="ar">قهوة ومشروبات باردة ومياه</span></h3>
+          <span class="price"><span class="en">All day</span><span class="ar">طوال اليوم</span></span>
+          <p><span class="en">Arabic coffee with cardamom, to drink while you plan the day.</span><span class="ar">قهوة عربية بالهيل، تشربها وأنت تخطط ليومك.</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="find">
+    <div class="wrap find">
+      <div>
+        <h2><span class="en">Find us</span><span class="ar">كيف تصل إلينا</span></h2>
+        <p class="intro">
+          <span class="en">On Bab Touma Square, beside the taxi drop-off outside the gate. Look for the black and white kiosk with the orange i.</span>
+          <span class="ar">في ساحة باب توما، بجانب موقف التكاسي أمام البوابة. ابحث عن الكشك الأسود والأبيض وعليه حرف i البرتقالي.</span>
+        </p>
+        <dl class="facts">
+          <dt><span class="en">Open</span><span class="ar">ساعات العمل</span></dt>
+          <dd><span class="en">Every day, <span class="js-hours"></span></span><span class="ar">يوميًا، <span class="js-hours"></span></span></dd>
+          <dt><span class="en">Languages</span><span class="ar">اللغات</span></dt>
+          <dd><span class="en">Arabic and English, with phrase cards in French, German and Turkish</span><span class="ar">العربية والإنجليزية، مع بطاقات عبارات بالفرنسية والألمانية والتركية</span></dd>
+          <dt><span class="en">Message</span><span class="ar">للتواصل</span></dt>
+          <dd><a class="js-wa js-wa-text" href="#" target="_blank" rel="noopener"></a> <span class="en">(WhatsApp, replies within 15 minutes while we're open)</span><span class="ar">(واتساب، نرد خلال 15 دقيقة أثناء ساعات العمل)</span></dd>
+        </dl>
+      </div>
+      <iframe class="map js-osm" title="Map of Bab Touma Square, Damascus" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="wrap">
+      <h2><span class="en">Before you explore</span><span class="ar">قبل أن تبدأ جولتك</span></h2>
+      <p class="intro">
+        <span class="en">The questions visitors ask us most. Ask at the kiosk for anything more recent.</span>
+        <span class="ar">أكثر الأسئلة التي يطرحها الزوار علينا. اسأل في الكشك عن أي جديد.</span>
+      </p>
+      <ul class="tips">
+        <li>
+          <strong><span class="en">Bring cash</span><span class="ar">احمل معك نقودًا</span></strong>
+          <span class="note"><span class="en">Most places take cash only. US dollars and euros are widely accepted; change them at a licensed exchange office, and we can point you to the nearest one. The Syrian pound lost two zeros in 2026, so check which notes you are given.</span><span class="ar">معظم الأماكن تقبل النقد فقط. الدولار واليورو مقبولان على نطاق واسع؛ صرّفهما في مكتب صرافة مرخّص ونرشدك إلى أقربه. حُذف صفران من الليرة السورية في 2026، فانتبه إلى الأوراق النقدية التي تستلمها.</span></span>
+        </li>
+        <li>
+          <strong><span class="en">Dress for mosques and churches</span><span class="ar">اللباس في المساجد والكنائس</span></strong>
+          <span class="note"><span class="en">Cover shoulders and knees. Women cover their hair in mosques; cloaks are usually available at the Umayyad Mosque entrance.</span><span class="ar">غطِّ الكتفين والركبتين. تغطي النساء شعرهن في المساجد، وغالبًا تتوفر عباءات عند مدخل الجامع الأموي.</span></span>
+        </li>
+        <li>
+          <strong><span class="en">Getting around</span><span class="ar">التنقل</span></strong>
+          <span class="note"><span class="en">The Old City is best on foot. For anything further, agree the taxi fare before you get in, or ask us for a driver at a fixed price.</span><span class="ar">أفضل طريقة لزيارة المدينة القديمة هي المشي. وللمسافات الأبعد، اتفق على أجرة التكسي قبل الركوب، أو اطلب منا سائقًا بسعر ثابت.</span></span>
+        </li>
+        <li>
+          <strong><span class="en">Staying connected</span><span class="ar">البقاء على اتصال</span></strong>
+          <span class="note"><span class="en">A local SIM is the easiest option. Bring your passport to register it.</span><span class="ar">الشريحة المحلية هي الخيار الأسهل. أحضر جواز سفرك لتسجيلها.</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <span class="en">Bab Touma Point is an independent kiosk, not a government office. Tours, trips and transfers are provided by licensed partners.</span>
+      <span class="ar">نقطة باب توما كشك مستقل وليست مكتبًا حكوميًا. تقدّم الجولات والرحلات والتنقلات جهاتٌ شريكة مرخّصة.</span>
+    </p>
+    <p>
+      <span class="en">Bab Touma Square, Old City, Damascus, Syria</span>
+      <span class="ar">ساحة باب توما، دمشق القديمة، سوريا</span>
+    </p>
+  </div>
+</footer>
+
+<a class="btn btn-primary float js-wa" href="#" target="_blank" rel="noopener">
+  <span class="en">WhatsApp</span><span class="ar">واتساب</span>
+</a>
+
+<script>
+  /* ===== Edit these values; everything else updates itself ===== */
+  const CONFIG = {
+    whatsapp: "963985390583",   // temporary: Michael's Syrian number; swap for the kiosk line (digits only)
+    hours: "8:00 to 23:00",
+    hoursAr: "من 8:00 حتى 23:00",
+    lat: 33.513502,            // kiosk position
+    lon: 36.315654,
+    mapsQuery: "Bab Touma Square, Damascus" // change to "Bab Touma Point" once the listing is live
+  };
+  /* ============================================================ */
+
+  const greet = {
+    en: "Hello Bab Touma Point, I'd like help with: ",
+    ar: "مرحبا نقطة باب توما، بدي مساعدة بـ: "
+  };
+
+  function waLink(lang) {
+    return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(greet[lang] || greet.en);
+  }
+
+  function render(lang) {
+    document.querySelectorAll(".js-wa").forEach(a => { a.href = waLink(lang); });
+    document.querySelectorAll(".js-wa-text").forEach(a => { a.textContent = "+" + CONFIG.whatsapp; a.dir = "ltr"; });
+    document.querySelectorAll(".js-maps").forEach(a => {
+      a.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.mapsQuery);
+    });
+    document.querySelectorAll(".en .js-hours").forEach(s => { s.textContent = CONFIG.hours; });
+    document.querySelectorAll(".ar .js-hours").forEach(s => { s.textContent = CONFIG.hoursAr; });
+  }
+
+  function setLang(lang) {
+    const root = document.documentElement;
+    root.lang = lang;
+    root.dir = lang === "ar" ? "rtl" : "ltr";
+    render(lang);
+    try { localStorage.setItem("btp-lang", lang); } catch (e) {}
+  }
+
+  (function init() {
+    const d = 0.0035;
+    const osm = document.querySelector(".js-osm");
+    osm.src = "https://www.openstreetmap.org/export/embed.html?bbox=" +
+      [CONFIG.lon - d, CONFIG.lat - d * 0.8, CONFIG.lon + d, CONFIG.lat + d * 0.8].join(",") +
+      "&layer=mapnik&marker=" + CONFIG.lat + "," + CONFIG.lon;
+
+    let saved = null;
+    try { saved = localStorage.getItem("btp-lang"); } catch (e) {}
+    const browserAr = (navigator.language || "").toLowerCase().startsWith("ar");
+    setLang(saved || (browserAr ? "ar" : "en"));
+
+    document.getElementById("lang").addEventListener("click", () => {
+      setLang(document.documentElement.lang === "ar" ? "en" : "ar");
+    });
+  })();
+</script>
+</body>
+</html>
